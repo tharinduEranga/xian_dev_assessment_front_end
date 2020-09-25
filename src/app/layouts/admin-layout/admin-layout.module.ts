@@ -10,6 +10,7 @@ import {AdminLayoutRoutes} from './admin-layout.routing';
 
 import {UserComponent} from '../../user/user.component';
 import {TablesComponent} from '../../tables/tables.component';
+import {DataTablesModule} from 'angular-datatables';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {TablesComponent} from '../../tables/tables.component';
         RouterModule.forChild(AdminLayoutRoutes),
         FormsModule,
         LbdModule,
-        NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
+        NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'}),
+        DataTablesModule
     ],
     declarations: [
         UserComponent,
