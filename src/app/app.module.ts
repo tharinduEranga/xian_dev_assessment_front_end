@@ -12,6 +12,7 @@ import {SidebarModule} from './sidebar/sidebar.module';
 import {AppComponent} from './app.component';
 
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.componen
     NavbarModule,
     FooterModule,
     SidebarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SweetAlert2Module.forRoot()
   ],
   declarations: [
     AppComponent,
