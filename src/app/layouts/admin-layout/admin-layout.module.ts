@@ -8,8 +8,8 @@ import {NguiMapModule} from '@ngui/map';
 
 import {AdminLayoutRoutes} from './admin-layout.routing';
 
-import {UserComponent} from '../../user/user.component';
-import {TablesComponent} from '../../tables/tables.component';
+import {UserComponent} from '../view/user/user.component';
+import {TablesComponent} from '../view/tables/tables.component';
 import {DataTablesModule} from 'angular-datatables';
 
 
