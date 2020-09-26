@@ -11,8 +11,8 @@ declare interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
 
-    {path: '/dashboard', title: 'Table List', icon: 'pe-7s-note2', class: ''},
-    {path: '/user', title: 'User Profile', icon: 'pe-7s-user', class: ''}
+    {path: '/dashboard', title: 'Product cartons', icon: 'pe-7s-albums', class: ''},
+    {path: '/calculate', title: 'Calculate', icon: 'pe-7s-calculator', class: ''}
 ];
 
 @Component({
@@ -30,9 +30,6 @@ export class SidebarComponent implements OnInit {
     }
 
     isMobileMenu() {
-        if ($(window).width() > 991) {
-            return false;
-        }
-        return true;
+        return $(window).width() <= 991;
     };
 }

@@ -9,10 +9,10 @@ declare interface TableData {
 
 @Component({
     selector: 'app-tables',
-    templateUrl: './tables.component.html',
-    styleUrls: ['./tables.component.css']
+    templateUrl: './cartons.component.html',
+    styleUrls: ['./cartons.component.css']
 })
-export class TablesComponent implements OnDestroy, OnInit {
+export class CartonsComponent implements OnDestroy, OnInit {
     public cartonTable: TableData;
 
     dtOptions: DataTables.Settings = {};

@@ -8,8 +8,8 @@ import {NguiMapModule} from '@ngui/map';
 
 import {AdminLayoutRoutes} from './admin-layout.routing';
 
-import {UserComponent} from '../view/user/user.component';
-import {TablesComponent} from '../view/tables/tables.component';
+import {CalculateComponent} from '../view/calculate/calculate.component';
+import {CartonsComponent} from '../view/cartons/cartons.component';
 import {DataTablesModule} from 'angular-datatables';
 import {ComboBoxComponent} from '../../util/combo-box/combo-box.component';
 
@@ -24,8 +24,8 @@ import {ComboBoxComponent} from '../../util/combo-box/combo-box.component';
         DataTablesModule
     ],
     declarations: [
-        UserComponent,
-        TablesComponent,
+        CalculateComponent,
+        CartonsComponent,
         ComboBoxComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

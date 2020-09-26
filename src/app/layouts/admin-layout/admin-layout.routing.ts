@@ -1,9 +1,9 @@
 import {Routes} from '@angular/router';
 
-import {UserComponent} from '../view/user/user.component';
-import {TablesComponent} from '../view/tables/tables.component';
+import {CalculateComponent} from '../view/calculate/calculate.component';
+import {CartonsComponent} from '../view/cartons/cartons.component';
 
 export const AdminLayoutRoutes: Routes = [
-    {path: 'user', component: UserComponent},
-    {path: 'dashboard', component: TablesComponent}
+    {path: 'calculate', component: CalculateComponent},
+    {path: 'dashboard', component: CartonsComponent}
 ];

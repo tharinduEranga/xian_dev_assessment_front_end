@@ -5,10 +5,10 @@ import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-user',
-    templateUrl: './user.component.html',
-    styleUrls: ['./user.component.css']
+    templateUrl: './calculate.component.html',
+    styleUrls: ['./calculate.component.css']
 })
-export class UserComponent implements OnInit {
+export class CalculateComponent implements OnInit {
     cartonList = [];
     private selectedItem: CartonDTO = {} as CartonDTO;
     private noOfInputCartons = 0;

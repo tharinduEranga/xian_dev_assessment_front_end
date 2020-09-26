@@ -109,7 +109,7 @@ light-bootstrap-dashboard-angular
 │   │   │   ├── tables.component.css
 │   │   │   ├── tables.component.html
 │   │   │   ├── tables.component.spec.ts
-│   │   │   └── tables.component.ts
+│   │   │   └── cartons.component.ts
 │   │   ├── typography
 │   │   │   ├── typography.component.css
 │   │   │   ├── typography.component.html
@@ -124,7 +124,7 @@ light-bootstrap-dashboard-angular
 │   │       ├── user.component.css
 │   │       ├── user.component.html
 │   │       ├── user.component.spec.ts
-│   │       └── user.component.ts
+│   │       └── calculate.component.ts
 │   ├── assets
 │   │   ├── css
 │   │   ├── fonts
