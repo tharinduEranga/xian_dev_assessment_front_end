@@ -4,7 +4,7 @@
            placeholder="Select one..." [ngClass]="{'error': showError}">
     <span *ngIf="showError" class="error-text"><i>Invalid Selection.</i></span>
     <div class="combobox-options" *ngIf="!listHidden">
-        <list-item *ngFor="let item of filteredList; let i = index" (click)="selectItem(i)"
+        <list-item *ngFor="let item of filteredList; let i = index" (click)="selectItem(i, item)"
                    [ngClass]="{'selected': i===selectedIndex}" value="{{item.id}}">{{item.value}}</list-item>
     </div>
 </div>

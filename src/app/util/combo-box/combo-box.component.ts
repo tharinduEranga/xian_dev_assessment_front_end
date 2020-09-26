@@ -1,6 +1,6 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
-interface ComboItem {
+export interface ComboItem {
     id: any
     value: any
 }
@@ -13,6 +13,7 @@ interface ComboItem {
 export class ComboBoxComponent implements OnInit {
 
     @Input() list: ComboItem[];
+    @Output() comboItem: EventEmitter<any> = new EventEmitter<any>();
     // two way binding for input text
     inputItem = '';
     // enable or disable visiblility of dropdown
@@ -42,11 +43,12 @@ export class ComboBoxComponent implements OnInit {
     }
 
     // select highlighted item when enter is pressed or any item that is clicked
-    selectItem(ind) {
+    selectItem(ind, item) {
 
         this.inputItem = this.filteredList[ind].value;
         this.listHidden = true;
         this.selectedIndex = ind;
+        this.comboItem.emit(item);
     }
 
     // navigate through the list of items
@@ -95,7 +97,7 @@ export class ComboBoxComponent implements OnInit {
         } else {
             // helps to select item by clicking
             setTimeout(() => {
-                this.selectItem(this.selectedIndex);
+                this.selectItem(this.selectedIndex, this.list[this.selectedIndex]);
                 this.listHidden = true;
                 const valuesList: string[] = [];
                 this.list.forEach(value => {
