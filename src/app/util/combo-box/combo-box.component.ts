@@ -44,8 +44,7 @@ export class ComboBoxComponent implements OnInit {
 
     // select highlighted item when enter is pressed or any item that is clicked
     selectItem(ind, item) {
-
-        this.inputItem = this.filteredList[ind].value;
+        this.inputItem = item.value;
         this.listHidden = true;
         this.selectedIndex = ind;
         this.comboItem.emit(item);
@@ -97,12 +96,9 @@ export class ComboBoxComponent implements OnInit {
         } else {
             // helps to select item by clicking
             setTimeout(() => {
-                this.selectItem(this.selectedIndex, this.list[this.selectedIndex]);
                 this.listHidden = true;
                 const valuesList: string[] = [];
-                this.list.forEach(value => {
-                    valuesList.push(value.value);
-                });
+                this.list.forEach(value => valuesList.push(value.value));
                 if (!valuesList.includes(this.inputItem)) {
                     this.showError = true;
                     this.filteredList = this.list;

@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ComboItem} from '../../../util/combo-box/combo-box.component';
+import {CartonService} from '../../../services/carton.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-user',
@@ -7,18 +9,14 @@ import {ComboItem} from '../../../util/combo-box/combo-box.component';
     styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-    itemList = [{id: 1, value: 'carrot'}, {id: 1, value: 'banana'}, {id: 1, value: 'apple'}, {id: 1, value: 'potato'}, {
-        id: 1,
-        value: 'tomato'
-    }, {id: 1, value: 'cabbage'}, {id: 1, value: 'turnip'}, {id: 1, value: 'okra'}, {id: 1, value: 'onion'}, {
-        id: 1,
-        value: 'cherries'
-    }, {id: 1, value: 'plum'}, {id: 1, value: 'mango'}];
+    cartonList = [];
     private selectedItem: ComboItem;
-    constructor() {
+
+    constructor(private cartonService: CartonService) {
     }
 
     ngOnInit() {
+        this.getCartonNames();
     }
 
     setSelectedCarton(date: any): void {
@@ -29,4 +27,14 @@ export class UserComponent implements OnInit {
         console.log(this.selectedItem);
     }
 
+    private getCartonNames() {
+        this.cartonList = [];
+        this.cartonService.getCartonNames().subscribe(value => {
+            const cartonConvertedResponse = [];
+            value.content.forEach(carton => cartonConvertedResponse.push({id: carton.id, value: carton.name}));
+            this.cartonList = cartonConvertedResponse;
+        }, error => {
+            Swal.fire('Error occurred!', error.message, 'error');
+        });
+    }
 }
