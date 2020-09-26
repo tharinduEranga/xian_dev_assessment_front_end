@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -11,6 +11,7 @@ import {AdminLayoutRoutes} from './admin-layout.routing';
 import {UserComponent} from '../view/user/user.component';
 import {TablesComponent} from '../view/tables/tables.component';
 import {DataTablesModule} from 'angular-datatables';
+import {ComboBoxComponent} from '../../util/combo-box/combo-box.component';
 
 
 @NgModule({
@@ -24,8 +25,10 @@ import {DataTablesModule} from 'angular-datatables';
     ],
     declarations: [
         UserComponent,
-        TablesComponent
-    ]
+        TablesComponent,
+        ComboBoxComponent
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class AdminLayoutModule {
