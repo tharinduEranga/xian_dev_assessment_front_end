@@ -16,4 +16,8 @@ export class CartonService extends DataService<CartonDTO> {
     getCartonNames(): Observable<CommonResponse<CartonDTO[]>> {
         return this.httpClient.get<CommonResponse<CartonDTO[]>>(this.cartonUrl.concat('/names'));
     }
+
+    calculate(resource) {
+        return this.httpClient.post<CommonResponse<number>>(this.cartonUrl.concat('/calculate'), resource);
+    }
 }

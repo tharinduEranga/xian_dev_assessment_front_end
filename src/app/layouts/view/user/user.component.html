@@ -13,23 +13,48 @@
                             <br>
                         </div>
                         <div class="col-md-3">
-                            <label>Price
-                                <input [value]="selectedItem.price != undefined ? selectedItem.price : 0.0"
+                            <label>Price</label>
+                            <input [value]="selectedItem.price != undefined ? selectedItem.price : 0.0"
                                        [disabled]="true" class="form-control">
-                            </label>
                         </div>
                         <div class="col-md-3">
-                            <label>No of Units
-                                <input [value]="selectedItem.units != undefined ? selectedItem.units : 0"
+                            <label>No of Units</label>
+                            <input [value]="selectedItem.units != undefined ? selectedItem.units : 0"
                                        [disabled]="true" class="form-control">
-                            </label>
                         </div>
                     </div>
+                    <br><br> <br><br>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <label>No of cartons </label>
+                                <input type="number" (focus)="$event.target.select();" [(ngModel)]="noOfInputCartons"
+                                       class="form-control">
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <label>No of units </label>
+                                <input type="number" (focus)="$event.target.select();" [(ngModel)]="noOfInputUnits"
+                                       class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+
                     <br><br> <br><br>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <button class="btn btn-primary full-width" (click)="logSelected()">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="text-center" [textContent]="calculateResult"></h2>
                             </div>
                         </div>
                     </div>

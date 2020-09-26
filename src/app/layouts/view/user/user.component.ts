@@ -11,6 +11,9 @@ import Swal from 'sweetalert2';
 export class UserComponent implements OnInit {
     cartonList = [];
     private selectedItem: CartonDTO = {} as CartonDTO;
+    private noOfInputCartons = 0;
+    private noOfInputUnits = 0;
+    private calculateResult = '';
 
     constructor(private cartonService: CartonService) {
     }
@@ -22,13 +25,22 @@ export class UserComponent implements OnInit {
     setSelectedCarton(carton: ComboItem): void {
         this.cartonService.search(carton.id).subscribe(value => {
             this.selectedItem = value.content;
-        }, error => {
-            Swal.fire('Error occurred!', error.message, 'error');
         });
     }
 
     logSelected(): void {
-        console.log(this.selectedItem);
+        if (this.selectedItem === undefined || this.selectedItem.id === undefined || this.selectedItem.id <= 0) {
+            Swal.fire('No product is selected!', 'Please select a product carton above', 'warning');
+            return;
+        }
+        const calculateReq = {
+            cartonId: this.selectedItem.id,
+            cartonCount: this.noOfInputCartons,
+            unitCount: this.noOfInputUnits
+        };
+        this.cartonService.calculate(calculateReq).subscribe(value => {
+            this.calculateResult = 'Cost for the units is : ' + value.content;
+        });
     }
 
     private getCartonNames() {
@@ -37,8 +49,6 @@ export class UserComponent implements OnInit {
             const cartonConvertedResponse = [];
             value.content.forEach(carton => cartonConvertedResponse.push({id: carton.id, value: carton.name}));
             this.cartonList = cartonConvertedResponse;
-        }, error => {
-            Swal.fire('Error occurred!', error.message, 'error');
         });
     }
 }

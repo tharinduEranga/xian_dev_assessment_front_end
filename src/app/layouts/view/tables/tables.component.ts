@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CartonService} from '../../../services/carton.service';
-import Swal from 'sweetalert2';
 import {Subject} from 'rxjs';
 
 declare interface TableData {
@@ -35,8 +34,6 @@ export class TablesComponent implements OnDestroy, OnInit {
             this.cartonTable.dataRows = value.content;
             // Calling the DT trigger to manually render the table
             this.dtTrigger.next();
-        }, error => {
-            Swal.fire('Error occurred!', error.message, 'error');
         });
     }
 

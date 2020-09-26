@@ -1,5 +1,5 @@
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
@@ -13,6 +13,7 @@ import {AppComponent} from './app.component';
 
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
+import {ErrorHandleChennel} from './util/ErrorHandleChennel';
 
 @NgModule({
   imports: [
@@ -30,7 +31,9 @@ import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
     AppComponent,
     AdminLayoutComponent
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorHandler, useClass: ErrorHandleChennel},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
