@@ -4,14 +4,39 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Edit Profile</h4>
+                        <h4 class="title">Calculate product prices</h4>
+                        <hr>
                     </div>
                     <div class="content">
-                        <app-combo-box [list]="cartonList" (comboItem)="setSelectedCarton($event)"></app-combo-box>
+                        <div class="col-md-6">
+                            <app-combo-box [list]="cartonList" (comboItem)="setSelectedCarton($event)"></app-combo-box>
+                            <br>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Price
+                                <input [value]="selectedItem.price != undefined ? selectedItem.price : 0.0"
+                                       [disabled]="true" class="form-control">
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label>No of Units
+                                <input [value]="selectedItem.units != undefined ? selectedItem.units : 0"
+                                       [disabled]="true" class="form-control">
+                            </label>
+                        </div>
                     </div>
+                    <br><br> <br><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary full-width" (click)="logSelected()">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
                 </div>
             </div>
-            <button class="btn btn-simple" (click)="logSelected()">Click</button>
         </div>
     </div>
 </div>

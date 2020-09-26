@@ -23,11 +23,11 @@ export class DataService<T> {
     }
 
     delete(id) {
-        return this.http.delete<CommonResponse<T>>(this.API_URL + id);
+        return this.http.delete<CommonResponse<T>>(this.API_URL.concat('/').concat(id));
     }
 
     search(id): Observable<CommonResponse<T>> {
-        return this.http.get<CommonResponse<T>>(this.API_URL + id);
+        return this.http.get<CommonResponse<T>>(this.API_URL.concat('/').concat(id));
     }
 
     getAll(): Observable<CommonResponse<T[]>> {

@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class UserComponent implements OnInit {
     cartonList = [];
-    private selectedItem: ComboItem;
+    private selectedItem: CartonDTO = {} as CartonDTO;
 
     constructor(private cartonService: CartonService) {
     }
@@ -19,8 +19,12 @@ export class UserComponent implements OnInit {
         this.getCartonNames();
     }
 
-    setSelectedCarton(date: any): void {
-        this.selectedItem = date;
+    setSelectedCarton(carton: ComboItem): void {
+        this.cartonService.search(carton.id).subscribe(value => {
+            this.selectedItem = value.content;
+        }, error => {
+            Swal.fire('Error occurred!', error.message, 'error');
+        });
     }
 
     logSelected(): void {
